@@ -321,6 +321,12 @@ public func debugEnabled(_ debugEnabled: Bool) {
     #endif
 }
 
+/// 重置SignificantEventCount计数
+public func resetSignificantEventCount() {
+    StandardUserDefaults().setObject(NSNumber(value: 0), forKey: keyForArmchairKeyType(ArmchairKey.SignificantEventCount))
+    StandardUserDefaults().synchronize()
+}
+
 /**
  Reset all counters manually. This resets UseCount, SignificantEventCount and FirstUseDate (daysUntilPrompt)
  */
